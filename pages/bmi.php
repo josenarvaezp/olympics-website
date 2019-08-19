@@ -11,7 +11,7 @@ of a given bmi.  -->
 <style>
 body{
     font-family: 'Bree Serif', serif;
-    background-image: url("images/bmiPIC.png");
+    background-image: url("../images/bmiPIC.png");
     background-size: cover;
 }
 

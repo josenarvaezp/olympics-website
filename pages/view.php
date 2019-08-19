@@ -1,6 +1,6 @@
 <?php
 //getting all the countries in the database in order to validate the user's input
-include "getDB.php";// gets the connection to the database
+include "../database/getDB.php";// gets the connection to the database
 
 $sql = "SELECT ISO_id FROM Country"; //sql to get all available countries
 $res = $db->query($sql);
@@ -24,9 +24,9 @@ The page appends the given results into tables (one per country).  -->
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' type='text/javascript'></script>
     <!-- adding jquery UI -->
-    <link rel="stylesheet" href="Jquery-UI/jquery-ui.min.css">
-    <script src="Jquery-UI/external/jquery/jquery.js"></script>
-    <script src="Jquery-UI/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../Jquery-UI/jquery-ui.min.css">
+    <script src="../Jquery-UI/external/jquery/jquery.js"></script>
+    <script src="../Jquery-UI/jquery-ui.min.js"></script>
     <style>
         
         body{
@@ -345,7 +345,7 @@ The page appends the given results into tables (one per country).  -->
                 sqlFromUser+=" ORDER BY "+ rank +" , Country.ISO_id DESC";
                 
                 //USING AJAX TO GET VALUES FROM DATABASE INTO JSON AND THEN PUTTING THEM IN TABLES
-                $.get('dbAccess.php',{sql:sqlFromUser}, function(result){
+                $.get('../database/dbAccess.php',{sql:sqlFromUser}, function(result){
 
                     //getting the countries in order and the index of their first occurance in the json array
                     var indexArray = [];
@@ -418,7 +418,7 @@ The page appends the given results into tables (one per country).  -->
 
             //JQUERY UI
             //enable autocomplete for countries text fields 
-            $.get('dbAccess.php',{sql:"SELECT ISO_id FROM Country"}, function(result){
+            $.get('../database/dbAccess.php',{sql:"SELECT ISO_id FROM Country"}, function(result){
                 var availableTags = [];
                 for (var field in result){
                     availableTags.push(result[field].iso_id);

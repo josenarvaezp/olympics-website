@@ -33,7 +33,7 @@ with the database, performs the search and echos the data into a table -->
 		background: linear-gradient(
 		rgba(0, 0, 0, 0.5),
 		rgba(0, 0, 0, 0.5)
-	  ),url("images/cyclists.jpg");
+	  ),url("../images/cyclists.jpg");
 		background-size: cover;
 		margin-top:0;
 		min-height:40em;
@@ -168,7 +168,7 @@ if ($country_id==null){//checking if country was entered
 	echo "<th> BMI</th>";
 	echo "</tr>";
 
-	include "getDB.php";
+	include "../database/getDB.php";
 
 	$query = "SELECT name, gender, height, weight FROM Cyclist WHERE ISO_id = '$country_id' AND upper(name) LIKE '%$part_name%'";
 	$res = $db->query($query);
